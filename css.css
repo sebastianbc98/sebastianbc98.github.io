@@ -1,0 +1,372 @@
+.img-logo{
+    max-width: 400px;
+    max-height: 300px;
+    width: auto;
+    height: auto;
+    align-items: center;
+}
+body {
+    margin: 100px;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    height: 72.5vh; /* Altura de la ventana */
+    background: linear-gradient(150deg, #6C3483, #58D68D);
+}
+header {
+    padding-top: 0px;
+    display: grid;
+    align-items:center;
+    justify-content: center;
+}
+.h1tituloprincipal{
+    padding-left: 80px;
+}
+
+div nav{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    justify-content: center;
+    align-items: center;
+}
+
+nav a {
+    border: 1px solid black;
+    border-radius: 25px;
+    color: blue;
+    padding: 10px 15px;
+    transition: back;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav a:active{
+    color: red;
+    background-color: blue;
+    
+}
+
+.maquillaje {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se muevan a la siguiente fila si no caben */
+    gap: 10px; /* Espacio entre los elementos */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Alinea los elementos verticalmente */
+}
+.maquillaje img {
+    display: flex;
+    flex: 0 1 calc(25% - 10px); /* Ocupa un 25% del ancho disponible */
+    max-width: 100%; /* No permite que las imágenes excedan su contenedor */
+    height: auto; /* Mantiene las proporciones */
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.maquillaje p {
+    flex: 0 1 calc(8% - 10px); /* Ocupa un 25% del ancho disponible, igual que las imágenes */
+    text-align: center; /* Centra el texto */
+}
+
+
+.perfumes{
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se muevan a la siguiente fila si no caben */
+    gap: 10px; /* Espacio entre los elementos */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Alinea los elementos verticalmente */
+}
+.perfumes img {
+    display: flex;
+    flex: 0 1 calc(25% - 10px); /* Ocupa un 25% del ancho disponible */
+    max-width: 100%; /* No permite que las imágenes excedan su contenedor */
+    height: auto; /* Mantiene las proporciones */
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.perfumes p {
+    flex: 0 1 calc(8% - 10px); /* Ocupa un 25% del ancho disponible, igual que las imágenes */
+    text-align: center; /* Centra el texto */
+}
+
+
+.accesorios {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se muevan a la siguiente fila si no caben */
+    gap: 10px; /* Espacio entre los elementos */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Alinea los elementos verticalmente */
+}
+.accesorios img {
+    display: flex;
+    flex: 0 1 calc(25% - 10px); /* Ocupa un 25% del ancho disponible */
+    max-width: 100%; /* No permite que las imágenes excedan su contenedor */
+    height: auto; /* Mantiene las proporciones */
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.accesorios p {
+    flex: 0 1 calc(8% - 10px); /* Ocupa un 25% del ancho disponible, igual que las imágenes */
+    text-align: center; /* Centra el texto */
+}
+
+
+section img{
+    max-width: 50px;
+    max-height: 50px;
+}
+
+.floating-button3login{
+    position: fixed; /* Hace que el botón sea fijo en la pantalla */
+    top: 20px; /* Distancia desde la parte superior */
+    right: 10px; /* Distancia desde el lado izquierdo */
+    z-index: 1000; /* Asegura que el botón quede encima de otros elementos */
+    background-color: #007bff; /* Color de fondo */
+    color: rgb(255, 255, 255); /* Color del texto */
+    border: none; /* Sin bordes */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra */
+    font-size: 16px; /* Tamaño del texto */
+}
+
+.floating-button2lista{
+    position: fixed; /* Hace que el botón sea fijo en la pantalla */
+    top: 20px; /* Distancia desde la parte superior */
+    left: 10px; /* Distancia desde el lado izquierdo */
+    z-index: 1000; /* Asegura que el botón quede encima de otros elementos */
+    background-color: #007bff; /* Color de fondo */
+    color: rgb(255, 255, 255); /* Color del texto */
+    border: none; /* Sin bordes */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra */
+    font-size: 16px; /* Tamaño del texto */
+}
+
+
+
+
+.floating-button2lista:hover {
+    background-color: #0056b3; /* Cambia el color al pasar el ratón */
+}
+.floating-button3login:hover {
+    background-color: #0056b3; /* Cambia el color al pasar el ratón */
+}
+
+.floating-button:hover {
+    background-color: #0056b3; /* Cambia el color al pasar el ratón */
+}
+
+
+.footerinicio{
+    position: fixed; /* Fija el footer en la posición */
+    bottom: 20px; /* Lo posiciona en la parte inferior */
+    left: 10px; /*Lo alinea a la izquierda */
+    width: 100%; /* Asegura que ocupe todo el ancho de la página */
+    padding: 10px 0; /* Añade un poco de espacio vertical */ 
+    font-size: 12px;
+}
+
+                 /*-------------------PAGINA DE LISTA DE PRODUCTOS-------------*/
+.buttonborrar{
+    background-color: red;
+    font-size: 16px;
+}
+
+.buttonguardar{
+    background-color: rgb(186, 215, 71);
+    font-size: 16px;
+}
+.buttoncompartir{
+    background-color: rgb(65, 85, 130);
+    font-size: 16px;
+}
+
+.buttonrealizarpedido{
+    background-color: green;
+    font-size: 16px;
+}
+
+#listaProductos li{
+    font-size: 20px;
+}
+
+.titulolista{
+    font-size: 60px;
+}
+
+/* -----------------LOGIN----------*/
+
+.formulario{
+    position:absolute ;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background: white;
+    border-radius: 10px;
+}
+
+.formulario form{
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+form .username{
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 30px 0;
+}
+
+.username input{
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.username label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.username span::before{
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    height: purple;
+    transition: .5s;
+}
+
+.username input:focus ~ label,
+.username input:focus ~ label{
+    top: -5px;
+    color:purple;
+}
+
+
+.username input:focus ~ span::before,
+.username input:focus ~ span::before{
+    width: 100%;
+}
+
+
+
+
+.contraseña input{
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.buttoniniciar{
+    background-color: purple;
+    transition: .5s;
+    border-radius: 25px;
+    width: 100%;
+    height: 50px;
+    color: white;
+    cursor: pointer;
+    outline: none;
+}
+
+.registrarse{
+    color: blue;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.registrarse a:hover{
+    text-decoration: underline;
+}
+
+.recordar{
+    padding-bottom: 20px;
+}
+
+
+
+/* registro*/
+
+.registro{
+    position:absolute ;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background: white;
+    border-radius: 10px;
+    text-align: center;
+    
+    
+}
+
+.registro form{
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+.registro input{
+    font-size: 16px;
+    padding-bottom: 8px;
+}
+
+.buttonsresgistro{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.buttonregistro{
+    background-color: purple;
+    transition: .5s;
+    border-radius: 25px;
+    width: 100%;
+    height: 50px;
+    color: white;
+    cursor: pointer;
+    outline: none;
+    
+
+}
+.buttonreset{
+    background-color: purple;
+    transition: .5s;
+    border-radius: 25px;
+    width: 100%;
+    height: 50px;
+    color: white;
+    cursor: pointer;
+    outline: none;
+}
+
+.titulovalidar{
+    justify-content: center;
+    color: red;
+}
+
+
+#maquillaje, #perfumes, #accesorios, #contacto{
+    display: none; /* Oculta el contenido inicialmente */
+}
