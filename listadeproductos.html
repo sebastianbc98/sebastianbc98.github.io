@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Productos</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+    <header>
+        <h1 class="titulolista">Lista de Productos</h1>
+    </header>
+    <main>
+        <ul id="listaProductos"></ul>
+        <button class="buttonborrar">Borrar lista <a href=""></a></button>
+        <button class="buttonguardar">guardar lista</button>
+        <button class="buttoncompartir">Compartir lista</button>
+        <button class="buttonrealizarpedido">Enviar Pedido</button>
+       
+        
+    </main>
+</body>
+
+ <!-- Botón flotante -->
+<section id="floating-button">
+    <a href="index.html"><button class="floating-buttonvolver">VOLVER</button></a>
+</section>
+
+
+
+<script>
+        // Obtener la lista de productos desde localStorage
+        const lista = JSON.parse(localStorage.getItem('listaProductos')) || [];
+
+        // Referencia al contenedor de la lista
+        const listaProductos = document.getElementById('listaProductos');
+
+        // Generar la lista en la página
+        lista.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = `${item.producto} - ${item.precio}€`;
+            listaProductos.appendChild(li);
+        });
+
+        // Si no hay productos, mostrar un mensaje
+        if (lista.length === 0) {
+            listaProductos.textContent = "No hay productos en la lista.";
+        }
+        
+
+        // Funcionalidad para borrar la lista
+        const buttonBorrar = document.querySelector('.buttonborrar');
+        buttonBorrar.addEventListener('click', () => {
+            // Limpiar el contenido de la lista
+            listaProductos.innerHTML = '';
+
+            // Limpiar la lista en localStorage
+            localStorage.removeItem('listaProductos');
+
+            // Mostrar mensaje de que la lista ha sido borrada
+            const mensaje = document.createElement('li');
+            mensaje.textContent = "La lista ha sido borrada.";
+            listaProductos.appendChild(mensaje);
+        });
+
+
+        /*// Funcionalidad para guardar la lista
+        const buttonGuardar = document.querySelector('.buttonguardar');
+        buttonGuardar.addEventListener('click', () => {
+            // Crear el contenido del archivo
+            let contenido = 'Producto, Precio\n'; // Cabecera del CSV
+            lista.forEach(item => {
+                contenido += `${item.producto}, ${item.precio}€\n`; // Añadir cada producto
+            });
+
+            // Crear un Blob con el contenido
+            const blob = new Blob([contenido], { type: 'text/csv' });
+
+            // Crear un enlace temporal para la descarga
+            const url = URL.createObjectURL(blob);
+            const enlace = document.createElement('a');
+            enlace.href = url;
+            enlace.download = 'pedidoHadriaShop.txt'; // Nombre del archivo
+
+            // Simular un clic en el enlace para iniciar la descarga
+            enlace.click();
+
+            // Liberar el objeto URL creado
+            URL.revokeObjectURL(url);
+        });*/
+
+
+        // Funcionalidad para descargar pedido como XLSX
+        const buttonguardar = document.querySelector('.buttonguardar');
+        buttonguardar.addEventListener('click', () => {
+            if (lista.length === 0) {
+                alert('No hay productos en la lista para descargar.');
+                return;
+            }
+
+            // Crear una nueva hoja de cálculo
+            const ws = XLSX.utils.json_to_sheet(lista.map(item => ({
+                Producto: item.producto,
+                Precio: item.precio + '€' // añadimos símbolo de euro para formatar
+            })));
+
+            // Crear un libro de trabajo y agregar la hoja
+            const wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, ws, 'Pedido');
+
+            // Generar el archivo .xlsx
+            XLSX.writeFile(wb, 'pedidoHadriaShop.xlsx');
+        });
+
+       
+
+        // Funcionalidad para compartir la lista
+        const buttoncompartir= document.querySelector('.buttoncompartir');
+        buttoncompartir.addEventListener('click', () => {
+            if (lista.length === 0) {
+                alert('No hay productos en la lista para compartir.');
+                return;
+            }
+
+            // Crear el contenido a compartir
+            let contenidoCompartir = 'Lista de Productos:\n\n';
+            lista.forEach(item => {
+                contenidoCompartir += `${item.producto} - ${item.precio}€\n`;
+            });
+
+            // Usar la API de compartir
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Compartir lista de productos',
+                    text: contenidoCompartir,
+                    url: window.location.href // Puedes compartir el URL de la página también
+                })
+                .then(() => console.log('Compartido con éxito'))
+                .catch(error => console.error('Error al compartir:', error));
+            } else {
+                alert('La función de compartir no está disponible en este navegador.');
+            }
+        });
+
+
+
+        // Funcionalidad para compartir la lista vía WhatsApp
+        const buttonrealizarpedido = document.querySelector('.buttonrealizarpedido');
+        buttonrealizarpedido.addEventListener('click', () => {
+            if (lista.length === 0) {
+                alert('No hay productos en la lista para enviar.');
+                return;
+            }
+
+            // Crear el contenido a compartir
+            let contenidoCompartir = 'Lista de Productos para Pedir:\n\n';
+            lista.forEach(item => {
+                contenidoCompartir += `${item.producto} - ${item.precio}€\n`;
+            });
+
+            /*// Agregar saludo al inicio del mensaje
+            contenidoCompartir = `Hola:\n\n${contenidoCompartir}`;*/
+
+            // Codificar el contenido para la URL
+            const textoCompartido = encodeURIComponent(contenidoCompartir);
+            const urlWhatsApp = `https://wa.me/692585741?text=${textoCompartido}`;
+
+            // Redirigir al enlace de WhatsApp
+            window.open(urlWhatsApp, '_blank');
+        });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+
+
